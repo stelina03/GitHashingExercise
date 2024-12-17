@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#Ελέγχει αν δόθηκε ένα μόνο όρισμα στην είσοδο
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <4-digit-integer>"
+    exit 1
+fi
+
+#Εκτυπώνει το hash του ορίσματος (μέσω του SHA-256)
+echo -n "$1" | sha256sum | awk '{print $1}'
